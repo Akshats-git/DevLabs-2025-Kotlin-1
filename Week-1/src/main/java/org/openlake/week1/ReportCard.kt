@@ -13,7 +13,7 @@ object ReportCard {
             println("3. Back to Main Menu")
             print("Choose an option: ")
 
-            when (readLine()?.toIntOrNull()) {
+            when (readlnOrNull()?.toIntOrNull()) {
                 1 -> enterGrades()
                 2 -> viewReportCard()
                 3 -> return

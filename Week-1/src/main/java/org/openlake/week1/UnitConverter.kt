@@ -24,7 +24,7 @@ fun lbToKg(value: Int) {
     println("$value lb(s) in ${"%.3f".format(value / 2.20462)} kg(s).")
 }
 
-fun main() {
+fun unitConverter() {
     println("Select the type of Unit Conversion: ")
     println("1. Kilometers(km) to Miles")
     println("2. Miles to Kilometers(km)")

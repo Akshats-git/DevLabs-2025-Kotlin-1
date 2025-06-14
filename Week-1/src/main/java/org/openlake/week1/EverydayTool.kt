@@ -1,5 +1,8 @@
 package org.openlake.week1
 
+import calculator
+import tf.iitb.myapplication.unitConverter
+
 fun main() {
     while (true) {
         println("\n🛠 Everyday Tools Menu")
@@ -11,9 +14,9 @@ fun main() {
         print("Choose an option: ")
 
         when (readlnOrNull()?.toIntOrNull()) {
-            1 -> UnitConverter.run()
-            2 -> Calculator.run()
-            3 -> BMICalculator.run()
+            1 -> unitConverter()
+            2 -> calculator()
+            3 -> bmiCalculator()
             4 -> ReportCard.run()
             5 -> {
                 println("Goodbye!")

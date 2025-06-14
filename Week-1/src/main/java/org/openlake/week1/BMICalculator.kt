@@ -1,7 +1,7 @@
 package org.openlake.week1
 
 
-fun main() {
+fun bmiCalculator() {
     print("Enter your weight(kg) : ")
     val weight = readln()?.toDoubleOrNull()
     print("Enter your height(m) : ")

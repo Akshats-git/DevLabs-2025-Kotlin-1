@@ -1,5 +1,5 @@
 
-    fun main()
+    fun calculator()
     {
         while (true)
         {
