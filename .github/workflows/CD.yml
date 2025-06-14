@@ -1,5 +1,10 @@
 name: CD
 
+permissions:
+  contents: write  # Needed for creating GitHub Releases
+  packages: write  # If you're also publishing packages
+  id-token: write  # Optional, for signing if needed
+
 on:
   workflow_run:
     workflows: ["Taskify CI"]
