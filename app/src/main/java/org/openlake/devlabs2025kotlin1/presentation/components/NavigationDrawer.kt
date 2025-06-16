@@ -1,4 +1,4 @@
-package tf.iitb.myapplication.presentation.components
+package org.openlake.devlabs2025kotlin1.presentation.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons

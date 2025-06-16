@@ -8,13 +8,12 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
-import tf.iitb.myapplication.presentation.components.NavigationDrawer
+import org.openlake.devlabs2025kotlin1.presentation.components.NavigationDrawer
 import tf.iitb.myapplication.presentation.notes.components.NoteItem
 
 @OptIn(ExperimentalMaterial3Api::class)
