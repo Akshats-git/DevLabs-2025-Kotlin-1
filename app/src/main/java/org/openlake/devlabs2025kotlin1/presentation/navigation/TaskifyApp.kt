@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import org.openlake.devlabs2025kotlin1.presentation.tasks.TaskScreen
 import tf.iitb.myapplication.presentation.notes.NoteScreen
 
 
@@ -15,7 +16,11 @@ fun TaskifyApp(
     val navController = rememberNavController()
     val startDestination = "notes"
 
-    NavHost(navController = navController, startDestination = startDestination) {
+
+    NavHost(
+        navController = navController,
+        startDestination = startDestination) {
+
         composable("login") {
 
         }
@@ -23,7 +28,7 @@ fun TaskifyApp(
         composable("register") {
         }
         composable("tasks") {
-
+            TaskScreen()
         }
         composable("notes") {
             NoteScreen(
@@ -34,9 +39,13 @@ fun TaskifyApp(
                 ),
                 onAddNote = { },
                 onNoteClick = { },
-                onNavigate = { },
+                onNavigate = { route ->
+                    navController.navigate(route)
+
+                },
                 onLogout = { }
             )
         }
+
     }
 }
