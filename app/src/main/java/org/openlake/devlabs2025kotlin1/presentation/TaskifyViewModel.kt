@@ -115,28 +115,73 @@ class TaskifyViewModel(
      * Load all notes from the repository
      */
     fun loadNotes() {
-
+        viewModelScope.launch {
+            _isLoading.value = true
+            _errorMessage.value = null
+            try {
+                val result = notesRepository.getNotes()
+                _notes.value = result
+            } catch (e: Exception) {
+                _errorMessage.value = "Failed to load notes"
+                e.printStackTrace()
+            } finally {
+                _isLoading.value = false
+            }
+        }
     }
 
     /**
      * Add a new note
      */
     fun addNote(note: Note) {
-
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val success = notesRepository.addNote(note)
+                if (success) loadNotes() else _errorMessage.value = "Failed to add note"
+            } catch (e: Exception) {
+                _errorMessage.value = "Error adding note"
+                e.printStackTrace()
+            } finally {
+                _isLoading.value = false
+            }
+        }
     }
 
     /**
      * Update an existing note
      */
     fun updateNote(note: Note, noteId: Int) {
-
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val success = notesRepository.updateNote(note, noteId)
+                if (success) loadNotes() else _errorMessage.value = "Failed to update note"
+            } catch (e: Exception) {
+                _errorMessage.value = "Error updating note"
+                e.printStackTrace()
+            } finally {
+                _isLoading.value = false
+            }
+        }
     }
 
     /**
      * Delete a note by its ID
      */
     fun deleteNote(noteId: Int) {
-
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val success = notesRepository.deleteNoteById(noteId)
+                if (success) loadNotes() else _errorMessage.value = "Failed to delete note"
+            } catch (e: Exception) {
+                _errorMessage.value = "Error deleting note"
+                e.printStackTrace()
+            } finally {
+                _isLoading.value = false
+            }
+        }
     }
 
     fun clearStates() {
